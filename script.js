@@ -1,48 +1,37 @@
-Para criar uma experiência realmente interativa, funcional e inteligente no seu projeto "Agro forte, futuro sustentável", o script.js deve ser mantido como um arquivo separado e limpo.
+/**
+ * Função para calcular e exibir o impacto ambiental
+ * com base na prática agrícola selecionada pelo usuário.
+ */
+function calcularImpacto() {
+    // Captura os elementos do DOM necessários
+    const selecao = document.getElementById('pratica').value;
+    const boxResultado = document.getElementById('resultado');
+    const titulo = document.getElementById('res-titulo');
+    const desc = document.getElementById('res-desc');
 
-Aqui está o código do seu script.js focado em interatividade, feedback visual e comportamento dinâmico:
-
-document.addEventListener("DOMContentLoaded", function() {
-
-    // 1. Navegação Suave (Smooth Scroll)
-    const links = document.querySelectorAll('nav a');
-    links.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            targetSection.scrollIntoView({ behavior: 'smooth' });
-        });
-    });
-
-    // 2. Feedback Visual nas Seções (Animação de entrada)
-    const secoes = document.querySelectorAll('section');
-    const observerOptions = { threshold: 0.1 };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = 1;
-                entry.target.style.transform = "translateY(0)";
-            }
-        });
-    }, observerOptions);
-
-    secoes.forEach(secao => {
-        secao.style.opacity = 0;
-        secao.style.transform = "translateY(20px)";
-        secao.style.transition = "all 0.6s ease-out";
-        observer.observe(secao);
-    });
-
-    // 3. Validação Básica de Formulário (Se você adicionar um no futuro)
-    const contactSection = document.querySelector('#contato');
-    if (contactSection) {
-        console.log("Seção de contato carregada e pronta para interações.");
+    // Se nenhuma opção válida for selecionada, esconde a caixa de resultado
+    if (selecao === "") {
+        boxResultado.style.display = "none";
+        return;
     }
 
-    // 4. Rodapé Dinâmico (Atualiza o ano automaticamente)
-    const footer = document.querySelector('footer p');
-    const anoAtual = new Date().getFullYear();
-    footer.innerHTML = `&copy; ${anoAtual} AGRINHO. Todos os direitos reservados.`;
-});
+    // Exibe a caixa de resultado
+    boxResultado.style.display = "block";
+
+    // Verifica a opção selecionada e atualiza o conteúdo e as cores dinamicamente
+    if (selecao === "tradicional") {
+        titulo.innerHTML = "⚠️ Alto Impacto Ambiental";
+        titulo.style.color = "#d90429"; // Vermelho para alerta
+        desc.innerHTML = "Essa prática gera alta produtividade imediata, mas empobrece o solo a longo prazo, consome cerca de 40% mais água e pode poluir lençóis freáticos devido ao uso de pesticidas sintéticos.";
+    } 
+    
+    else if (selecao === "organica") {
+        titulo.innerHTML = "🌱 Impacto Positivo";
+        titulo.style.color = "#2d6a4f"; // Verde padrão
+        desc.innerHTML = "Preserva a biodiversidade do solo e a saúde dos consumidores. Reduz drasticamente la pegada de carbono e economiza água, embora exija um manejo mais atento contra pragas.";
+    } 
+    
+    else if (selecao === "sintropica") {
+        titulo.innerHTML = "🌳 Impacto Regenerativo Máximo!";
+        titulo.style.color = "#52b788"; // Verde claro/vivo para destaque positivo
+        desc.innerHTML = "O ápice da sustentabilidade. Além de produzir alimentos
