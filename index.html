@@ -1,43 +1,244 @@
-   <!DOCTYPE html>
-   <html lang="pt-BR">
-   <head>
-       <meta charset="UTF-8">
-       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <title>Agro forte, futuro sustentável</title>
-       <link rel="stylesheet" href="styles.css">
-   </head>
-   <body>
-       <header>
-           <h1>Agro Forte, Futuro Sustentável</h1>
-           <nav>
-               <ul>
-                   <li><a href="#sobre">Sobre</a></li>
-                   <li><a href="#producao">Produção</a></li>
-                   <li><a href="#meio-ambiente">Meio Ambiente</a></li>
-                   <li><a href="#contato">Contato</a></li>
-               </ul>
-           </nav>
-       </header>
-       <main>
-           <section id="sobre">
-               <h2>Sobre o Projeto</h2>
-               <p>Descrição do projeto e seus objetivos.</p>
-           </section>
-           <section id="producao">
-               <h2>Produção Sustentável</h2>
-               <p>Informações sobre práticas de produção sustentável.</p>
-           </section>
-           <section id="meio-ambiente">
-               <h2>Equilíbrio com o Meio Ambiente</h2>
-               <p>Como equilibrar produção e preservação ambiental.</p>
-           </section>
-           <section id="contato">
-               <h2>Contato</h2>
-               <p>Formas de contato e redes sociais.</p>
-           </section>
-       </main>
-       <footer>
-           <p>&copy; 2026 AGRINHO. Todos os direitos reservados.</p>
-       </footer>
-   </body>
-   </html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroSustentável | O Futuro da Terra</title>
+    <style>
+        /* Reset de Estilos */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #2d6a4f;
+            --primary-light: #52b788;
+            --dark: #1b4332;
+            --light: #f4f9f4;
+            --text: #2b2d42;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Cabeçalho e Menu */
+        header {
+            background-color: var(--primary);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-light);
+        }
+
+        /* Seção Hero (Banner Principal) */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 1rem;
+            margin-top: 60px;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            background-color: var(--primary-light);
+            color: white;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #40916c;
+        }
+
+        /* Seções de Conteúdo */
+        .container {
+            max-width: 1100px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--dark);
+            margin-bottom: 3rem;
+            font-size: 2rem;
+        }
+
+        /* Cards de Pilares */
+        .pilares {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Ferramenta Interativa (Calculadora / Simulador) */
+        .simulador-box {
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .form-group select:focus {
+            border-color: var(--primary-light);
+        }
+
+        .resultado {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            border-left: 5px solid var(--primary);
+            background-color: #f9f9f9;
+            display: none;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+            }
+            nav {
+                margin-top: 1rem;
+            }
+            nav a {
+                margin: 0 10px;
+            }
+            .hero h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🌱 AgroSustentável</h1>
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#pilares">Pilares</a>
+            <a href="#simulador">Simulador</a>
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero">
+        <h2>Agricultura do Amanhã, Hoje</h2>
+        <p>Descubra como a tecnologia e as práticas sustentáveis estão transformando a produção de alimentos sem agredir o nosso planeta.</p>
+        <a href="#simulador" class="btn">Testar Simulador</a>
+    </section>
+
+    <section id="pilares" class="container">
+        <h2 class="section-title">Nossos Pilares Sustentáveis</h2>
+        <div class="pilares">
+            <div class="card">
+                <h3>💧 Manejo de Água</h3>
+                <p>Uso de irrigação gota a gota e captação de água da chuva para reduzir o desperdício nos cultivos.</p>
+            </div>
+            <div class="card">
+                <h3>☀️ Energia Limpa</h3>
+                <p>Implementação de painéis solares e biomassa para abastecer maquinários e estruturas agrícolas.</p>
+            </div>
+            <div class="card">
+                <h3>🪱 Solo Vivo</h3>
+                <p>Rotação de culturas e adubação orgânica para manter a terra fértil por gerações sem químicos nocivos.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="simulador" class="container">
+        <h2 class="section-title">Simulador de Impacto Agro</h2>
+        <div class="simulador-box">
+            <p style="margin-bottom: 1.5rem; text-align: center;">Escolha uma prática agrícola abaixo para ver o impacto ecológico estimado da sua fazenda virtual!</p>
