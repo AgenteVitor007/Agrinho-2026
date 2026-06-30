@@ -1,56 +1,54 @@
-:root {
-    --verde-agro: #1b5e20;
-    --marrom-terra: #5d4037;
-    --bege-fundo: #fdfaf6;
-    --texto: #263238;
-}
-
+/* ==========================================
+   RESET DE ESTILOS & CONFIGURAÇÕES GERAIS
+   ========================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --primary: #2d6a4f;
+    --primary-light: #52b788;
+    --dark: #1b4332;
+    --light: #f4f9f4;
+    --text: #2b2d42;
+    --white: #ffffff;
+    --gray-light: #f9f9f9;
+    --border: #e0e0e0;
 }
 
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    line-height: 1.8;
-    background-color: var(--bege-fundo);
-    color: var(--texto);
+    background-color: var(--light);
+    color: var(--text);
+    line-height: 1.6;
 }
 
+/* ==========================================
+   CABEÇALHO E MENU DE NAVEGAÇÃO
+   ========================================== */
 header {
-    background-color: var(--verde-agro);
-    color: #ffffff;
-    padding: 3rem 1rem;
-    text-align: center;
-    border-bottom: 5px solid var(--marrom-terra);
+    background-color: var(--primary);
+    padding: 1rem 2rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-main {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 30px;
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+header h1 {
+    color: var(--white);
+    font-size: 1.5rem;
 }
 
-h1, h2 {
-    color: var(--verde-agro);
-    margin-bottom: 1rem;
-}
-
-p {
-    margin-bottom: 1.5rem;
-}
-
-@media (max-width: 600px) {
-    main {
-        margin: 20px 10px;
-        padding: 20px;
-    }
-    
-    header {
-        padding: 2rem 1rem;
-    }
-}
+nav a {
+    color: var(--white);
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 600;
+    transition: color 0
